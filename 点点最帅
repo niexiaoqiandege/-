@@ -1,0 +1,13 @@
+1.当用户在浏览器中点击一个链接或者提交一个表单时，那么就会产生一个请求（request）。当请求离开浏览器时，它会携带用户请求的信息。
+
+2.请求的第一站到达的是Spring的DispatcherServlet，它是一个前端控制器，工作是将用户的请求委托给其他的组件（这里是交给Spring MVC的控制器）去处理。
+
+这里DispatcherServlet要决定将请求传给哪一个控制器（Controller）去处理，那么这时就需要处理器映射（Handler Mapping）了。
+
+处理器映射会看请求的URL信息，然后决定将请求交给哪一个控制器去处理。比如说有两个控制器ControllerA和ControllerB，分别处理后缀名为.html和.jsp送来的请求，那么当请求者的后缀名为.html时，那么DispatcherServlet就将请求交给ControllerA进行处理。
+
+C代表Controller，负责用户界面和业务逻辑层的通信控制，一方面解释来自用户界面的输入，识别用户动作（如点击按钮等），调用相应Model中的方法，另一方面处理来自Model的事件和返回的执行结果，调用适当的View显示给用户，Controller主要由Servlet完成。
+
+M代表Model，负责整个解决方案的业务逻辑实现，底层的数据库也由Model访问和操作；
+
+V代表View，负责系统向用户的展示，主要由HTML及JSP等完成；
